@@ -33,5 +33,10 @@ namespace EasyCache
 
             return value;
         }
+
+        public bool ContainsKey(string key)
+        {
+            return _storage.ContainsKey(key);
+        }
     }
 }

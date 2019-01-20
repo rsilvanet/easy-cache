@@ -10,7 +10,7 @@ public class MemoryCacheStorage : ICacheStorage
         _dictionary = new ConcurrentDictionary<string, object>();
     }
 
-    public T GetValue<T>(string key)
+    public virtual T GetValue<T>(string key)
     {
         if (_dictionary.ContainsKey(key))
         {
@@ -20,7 +20,7 @@ public class MemoryCacheStorage : ICacheStorage
         return default(T);
     }
 
-    public void SetValue<T>(string key, T value)
+    public virtual void SetValue<T>(string key, T value)
     {
         if (_dictionary.ContainsKey(key))
         {
@@ -30,5 +30,10 @@ public class MemoryCacheStorage : ICacheStorage
         {
             _dictionary.Add(key, value);
         }
+    }
+
+    public virtual bool ContainsKey(string key)
+    {
+        return _dictionary.ContainsKey(key);
     }
 }
