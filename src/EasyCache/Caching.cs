@@ -16,19 +16,19 @@ namespace EasyCache
             return _storage.GetValue<T>(key);
         }
 
-        public void SetValue<T>(string key, T value)
+        public void SetValue<T>(string key, T value, TimeSpan expiration)
         {
-            _storage.SetValue(key, value);
+            _storage.SetValue(key, value, expiration);
         }
 
-        public T GetValue<T>(string key, Func<T> cachelessFunc)
+        public T GetValue<T>(string key, Func<T> cachelessFunc, TimeSpan expiration)
         {
             var value = GetValue<T>(key);
 
             if (value == null)
             {
                 value = cachelessFunc();
-                _storage.SetValue(key, value);
+                _storage.SetValue(key, value, expiration);
             }
 
             return value;
@@ -36,7 +36,7 @@ namespace EasyCache
 
         public bool ContainsKey(string key)
         {
-            return _storage.ContainsKey(key);
+            return _storage.ContainsValidKey(key);
         }
     }
 }
