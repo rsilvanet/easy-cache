@@ -23,15 +23,15 @@ public class MemoryCacheStorage : ICacheStorage
 
     public virtual void SetValue<T>(string key, T value, TimeSpan expiration)
     {
-        var expDate = DateTime.Now.Add(expiration);
+        var expireDate = DateTime.Now.Add(expiration);
 
         if (_dictionary.ContainsKey(key))
         {
-            _dictionary[key] = (value, expDate);
+            _dictionary[key] = (value, expireDate);
         }
         else 
         {
-            _dictionary.Add(key, (value, expDate));
+            _dictionary.Add(key, (value, expireDate));
         }
     }
 
