@@ -11,6 +11,8 @@ namespace EasyCache.Tests
         private readonly Mock<MemoryCacheStorage> _storage;
         private readonly Caching _caching;
 
+        public static IEnumerable<object[]> DataToCache = InlineData.DataToCache;
+
         public MemoryCacheTests()
         {
             _storage = new Mock<MemoryCacheStorage>()
@@ -21,74 +23,74 @@ namespace EasyCache.Tests
             _caching = new Caching(_storage.Object);
         }
         
-        [Fact]
-        public void CanGenerateCacheFromSet()
+        [Theory, MemberData(nameof(InlineData.DataToCache))]
+        public void CanGenerateCacheFromSet(object value)
         {
             Assert.False(_caching.ContainsKey("test"));
             
             _caching.SetValue(
                 "test", 
-                "Some value.",
+                value,
                 TimeSpan.FromDays(1)
             );
             
             _storage.Verify(x => x.SetValue(
                 "test", 
-                "Some value.", 
+                value, 
                 TimeSpan.FromDays(1)
             ), Times.Once);
             
             Assert.True(_caching.ContainsKey("test"));
         }
 
-        [Fact]
-        public void CanGenerateCacheFromGetWithCachelessFunc()
+        [Theory, MemberData(nameof(InlineData.DataToCache))]
+        public void CanGenerateCacheFromGetWithCachelessFunc(object value)
         {
             Assert.False(_caching.ContainsKey("test"));
             
             _caching.GetValue(
                 "test", 
-                () => "Some value.",
+                () => value,
                 TimeSpan.FromDays(1)
             );
 
             _storage.Verify(x => x.SetValue(
                 "test", 
-                "Some value.",
+                value,
                 TimeSpan.FromDays(1)
             ), Times.Once);
             
             Assert.True(_caching.ContainsKey("test"));
         }
 
-        [Fact]
-        public void CanGetValueFromCache()
+        [Theory, MemberData(nameof(InlineData.DataToCache))]
+        public void CanGetValueFromCache(object value)
         {
-            Assert.Null(_caching.GetValue<string>("test"));
+            Assert.Null(_caching.GetValue<object>("test"));
 
             _caching.SetValue(
                 "test", 
-                "Some value.", 
+                value,  
                 TimeSpan.FromDays(1)
             );
 
-            Assert.Equal("Some value.", _caching.GetValue<string>("test"));
+            Assert.Equal(value, _caching.GetValue<object>("test"));
         }
 
-        [Fact]
-        public void CacheExpiresCorrectly()
+        [Theory, MemberData(nameof(InlineData.DataToCache))]
+        public void CacheExpiresCorrectly(object value)
         {
-            Assert.Null(_caching.GetValue<string>("test"));
+            Assert.Null(_caching.GetValue<object>("test"));
 
             _caching.SetValue(
                 "test", 
-                "Some value.", 
-                TimeSpan.FromSeconds(2)
+                value, 
+                TimeSpan.FromSeconds(1)
             );
 
-            Assert.Equal("Some value.", _caching.GetValue<string>("test"));
-            Thread.Sleep(3000);
-            Assert.Null(_caching.GetValue<string>("test"));
+            Assert.Equal(value, _caching.GetValue<object>("test"));
+            Thread.Sleep(2000);
+            Assert.Null(_caching.GetValue<object>("test"));
         }
     }
 }
