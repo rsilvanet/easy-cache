@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using EasyCache.Storage;
+using EasyCache.Tests.Shared;
 using Moq;
 using Xunit;
 

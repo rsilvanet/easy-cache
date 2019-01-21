@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace EasyCache.Tests
+namespace EasyCache.Tests.Shared
 {
     public class InlineData
     {

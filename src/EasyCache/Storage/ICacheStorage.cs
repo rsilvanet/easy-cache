@@ -1,8 +1,11 @@
 using System;
 
-public interface ICacheStorage
+namespace EasyCache.Storage
 {
-    T GetValue<T>(string key);
-    void SetValue<T>(string key, T value, TimeSpan expiration);
-    bool ContainsValidKey(string key);
+    public interface ICacheStorage
+    {
+        T GetValue<T>(string key);
+        void SetValue<T>(string key, T value, TimeSpan expiration);
+        bool ContainsValidKey(string key);
+    }
 }

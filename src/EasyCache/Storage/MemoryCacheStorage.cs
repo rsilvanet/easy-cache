@@ -2,49 +2,52 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-public class MemoryCacheStorage : ICacheStorage
+namespace EasyCache.Storage
 {
-    private readonly IDictionary<string, (object, DateTime)> _dictionary;
-
-    public MemoryCacheStorage()
+    public class MemoryCacheStorage : ICacheStorage
     {
-        _dictionary = new ConcurrentDictionary<string, (object, DateTime)>();
-    }
+        private readonly IDictionary<string, (object, DateTime)> _dictionary;
 
-    public virtual T GetValue<T>(string key)
-    {
-        if (ContainsValidKey(key))
+        public MemoryCacheStorage()
         {
-            return (T)_dictionary[key].Item1;
+            _dictionary = new ConcurrentDictionary<string, (object, DateTime)>();
         }
 
-        return default(T);
-    }
-
-    public virtual void SetValue<T>(string key, T value, TimeSpan expiration)
-    {
-        var expireDate = DateTime.Now.Add(expiration);
-
-        if (_dictionary.ContainsKey(key))
+        public virtual T GetValue<T>(string key)
         {
-            _dictionary[key] = (value, expireDate);
-        }
-        else 
-        {
-            _dictionary.Add(key, (value, expireDate));
-        }
-    }
-
-    public virtual bool ContainsValidKey(string key)
-    {
-        if (_dictionary.ContainsKey(key))
-        {
-            if (_dictionary[key].Item2 >= DateTime.Now)
+            if (ContainsValidKey(key))
             {
-                return true;
+                return (T)_dictionary[key].Item1;
+            }
+
+            return default(T);
+        }
+
+        public virtual void SetValue<T>(string key, T value, TimeSpan expiration)
+        {
+            var expireDate = DateTime.Now.Add(expiration);
+
+            if (_dictionary.ContainsKey(key))
+            {
+                _dictionary[key] = (value, expireDate);
+            }
+            else
+            {
+                _dictionary.Add(key, (value, expireDate));
             }
         }
 
-        return false;
+        public virtual bool ContainsValidKey(string key)
+        {
+            if (_dictionary.ContainsKey(key))
+            {
+                if (_dictionary[key].Item2 >= DateTime.Now)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

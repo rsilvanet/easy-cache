@@ -1,4 +1,5 @@
 ﻿using System;
+using EasyCache.Storage;
 
 namespace EasyCache
 {

@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace EasyCache.Tests
+namespace EasyCache.Tests.Shared
 {
     public class TestObject
     {

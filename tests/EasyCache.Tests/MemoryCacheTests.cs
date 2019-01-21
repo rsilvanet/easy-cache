@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using EasyCache.Storage;
+using EasyCache.Tests.Shared;
 using Moq;
 using Xunit;
 
