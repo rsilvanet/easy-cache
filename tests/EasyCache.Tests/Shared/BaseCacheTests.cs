@@ -12,7 +12,7 @@ namespace EasyCache.Tests.Shared
 {
     public abstract class BaseCacheTests
     {
-        // protected Mock<ICacheStorage> _storage;
+        protected Mock _storage;
         protected Caching _caching;
 
         [Fact]
@@ -20,7 +20,7 @@ namespace EasyCache.Tests.Shared
         {
             Assert.False(_caching.ContainsKey("test"));
             _caching.SetValue("test", "Some value", TimeSpan.FromDays(1));
-            // _storage.Verify(x => x.SetValue("test", "Some value", TimeSpan.FromDays(1)), Times.Once);
+            _storage.As<ICacheStorage>().Verify(x => x.SetValue("test", "Some value", TimeSpan.FromDays(1)), Times.Once);
             Assert.True(_caching.ContainsKey("test"));
         }
 
@@ -29,7 +29,7 @@ namespace EasyCache.Tests.Shared
         {
             Assert.False(_caching.ContainsKey("test"));
             _caching.GetValue("test", () => "Some value", TimeSpan.FromDays(1));
-            // _storage.Verify(x => x.SetValue("test", "Some value", TimeSpan.FromDays(1)), Times.Once);
+            _storage.As<ICacheStorage>().Verify(x => x.SetValue("test", "Some value", TimeSpan.FromDays(1)), Times.Once);
             Assert.True(_caching.ContainsKey("test"));
         }
 

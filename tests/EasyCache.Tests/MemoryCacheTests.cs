@@ -13,6 +13,7 @@ namespace EasyCache.Tests
                 CallBase = true
             };
 
+            _storage = storage;
             _caching = new Caching(storage.Object);
         }
     }
