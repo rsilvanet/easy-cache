@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace EasyCache.Tests.Shared
@@ -12,5 +13,13 @@ namespace EasyCache.Tests.Shared
         public decimal DecimalField { get; set; }
         public DateTime DateField { get; set; }
         public bool BoolField { get; set; }
+        public TestEnum EnumField { get; set; }
+        public AnotherTestObject ObjectField { get; set; }
+        public IList<AnotherTestObject> ListField { get; set; }
+    }
+
+    public class AnotherTestObject
+    {
+        public string StringField { get; set; }
     }
 }
