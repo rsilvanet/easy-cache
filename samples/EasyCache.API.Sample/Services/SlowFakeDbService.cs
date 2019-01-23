@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace EasyCache.API.Sample.Services
 {
@@ -22,6 +23,11 @@ namespace EasyCache.API.Sample.Services
                 "Value 8",
                 "Value 9",
             };
+        }
+
+        public async Task<IEnumerable<string>> GetSomeDataAsync()
+        {
+            return await Task.FromResult(GetSomeData());
         }
     }
 }

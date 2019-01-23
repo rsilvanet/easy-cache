@@ -21,12 +21,29 @@ namespace EasyCache.API.Sample.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         public ActionResult Get()
         {
             var cacheKey = "sample";
-            var sourceFunc = () => _slowFakeDb.GetSomeData();
             var expiration = TimeSpan.FromSeconds(30);
-            var data = _cache.GetValue(cacheKey, sourceFunc, expiration);
+            var data = _cache.GetValue(
+                cacheKey, 
+                () => _slowFakeDb.GetSomeData(), 
+                expiration);
+
+            return Ok(data);
+        }
+
+        [HttpGet]
+        [Route("async")]
+        public async Task<ActionResult> GetAsync()
+        {
+            var cacheKey = "sample-async";
+            var expiration = TimeSpan.FromSeconds(30);
+            var data = await _cache.GetValue(
+                cacheKey, 
+                async () => await _slowFakeDb.GetSomeDataAsync(), 
+                expiration);
 
             return Ok(data);
         }
