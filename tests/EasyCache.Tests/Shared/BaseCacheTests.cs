@@ -122,5 +122,25 @@ namespace EasyCache.Tests.Shared
             Thread.Sleep(2000);
             Assert.Null(_caching.GetValue<string>("test"));
         }
+
+        [Fact]
+        public void CanRemoveKey()
+        {
+            _caching.SetValue("test", "Some value", TimeSpan.FromDays(1));
+            Assert.True(_caching.ContainsKey("test"));
+            _caching.RemoveKey("test");
+            Assert.False(_caching.ContainsKey("test"));            
+        }
+
+        [Fact]
+        public void CanResetCache()
+        {
+            _caching.Reset();
+            _caching.SetValue("test1", "Some value 1", TimeSpan.FromDays(1));
+            _caching.SetValue("test2", "Some value 2", TimeSpan.FromDays(1));
+            Assert.Equal(2, _caching.Count());
+            _caching.Reset();
+            Assert.Equal(0, _caching.Count());
+        }
     }
 }

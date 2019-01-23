@@ -40,5 +40,20 @@ namespace EasyCache
         {
             return _storage.ContainsValidKey(key);
         }
+
+        public void RemoveKey(string key)
+        {
+            _storage.RemoveKey(key);
+        }
+
+        public void Reset()
+        {
+            _storage.Reset();
+        }
+
+        public int Count()
+        {
+            return _storage.Count();
+        }
     }
 }

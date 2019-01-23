@@ -11,6 +11,10 @@ namespace EasyCache.Storage
     public class FileCacheStorage : ICacheStorage
     {
         private readonly string _path;
+        
+        private const string PREFIX = "easy-cache-";
+
+        public string BasePath => _path;
 
         public FileCacheStorage(string path)
         {
@@ -19,10 +23,8 @@ namespace EasyCache.Storage
 
         private string BuildFilePath(string fileName)
         {
-            return Path.Combine(_path, "easy-cache-" + fileName);
+            return Path.Combine(_path, PREFIX + fileName);
         }
-
-        public string BasePath => _path;
 
         public virtual T GetValue<T>(string key)
         {
@@ -70,6 +72,36 @@ namespace EasyCache.Storage
             }
             
             return false;
+        }
+
+        public void RemoveKey(string key)
+        {
+            var filePath = BuildFilePath(key);
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+        }
+
+        public void Reset()
+        {
+            var files = Directory.EnumerateFiles(_path)
+                .Select(f => new FileInfo(f))
+                .Where(f => f.Name.StartsWith(PREFIX));
+
+            foreach (var file in files)
+            {
+                file.Delete();
+            } 
+        }
+
+        public int Count()
+        {
+            return Directory.EnumerateFiles(_path)
+                .Select(f => new FileInfo(f))
+                .Where(f => f.Name.StartsWith(PREFIX))
+                .Count();
         }
     }
 }

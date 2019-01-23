@@ -49,5 +49,23 @@ namespace EasyCache.Storage
 
             return false;
         }
+
+        public void RemoveKey(string key)
+        {
+            if (_dictionary.ContainsKey(key))
+            {
+                _dictionary.Remove(key);
+            }
+        }
+
+        public void Reset()
+        {
+            _dictionary.Clear();
+        }
+
+        public int Count()
+        {
+            return _dictionary.Count;
+        }
     }
 }
