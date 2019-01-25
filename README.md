@@ -6,11 +6,11 @@ Easy Cache is a .NET library that turns it simple to cache data in your apps wit
 
 * **FileCacheStorage**: stores the cache serialized in files, so you can actually share it between applications.
 
-Note that I do not recommend you to use these implementations in your production code since they are not the best storages for effective cache and, beyond that, are not optimized. Instead, I recommend you to do your own implementation of the ICacheStorage using an appropriate storage of your choice or have a look in my Redis implementation (comming soon).
+Note that I do not recommend you to use these implementations in your production code since they are not the best storages for effective cache and, beyond that, are not optimized. Instead, I recommend you to do your own implementation of the ```ICacheStorage``` using an appropriate storage of your choice or have a look in my **Redis** implementation (comming soon).
 
 Now, let me show you the code...
 
-In your startup code, configure the Caching and inject in your DI resolver, container or static field:
+In your startup code, configure the ```Caching``` and inject in your DI resolver, container or static field:
 
 ```cs
 public void ConfigureServices(IServiceCollection services)
@@ -24,7 +24,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-To use it, just retrieve the Caching instance like this:
+Then just get your ```Caching``` instance and use it like this:
 
 ```cs
 private readonly Database _db;
