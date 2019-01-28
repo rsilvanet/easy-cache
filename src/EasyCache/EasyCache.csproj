@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>EasyCache.NET</PackageId>
+    <Title>A .NET library to help with cache needs</Title>
+    <Version>1.0.0</Version>
+    <Authors>Robson da Silva</Authors>
+    <RepositoryUrl>https://github.com/rsilvanet/easy-cache</RepositoryUrl>
+    <PackageTags>easy;cache;net</PackageTags>
   </PropertyGroup>
 
 </Project>
