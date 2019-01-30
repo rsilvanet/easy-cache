@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using EasyCache.Storage;
-using EasyCache.Tests.Shared;
+using EasyCache.NET.Storage;
+using EasyCache.NET.Tests.Shared;
 using Moq;
 using Xunit;
 
-namespace EasyCache.Tests.Shared
+namespace EasyCache.NET.Tests.Shared
 {
     public abstract class BaseCacheTests
     {

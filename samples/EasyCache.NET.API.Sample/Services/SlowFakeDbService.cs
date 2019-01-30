@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace EasyCache.API.Sample.Services
+namespace EasyCache.NET.API.Sample.Services
 {
     public class SlowFakeDbService
     {

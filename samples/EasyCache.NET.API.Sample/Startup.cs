@@ -10,10 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using EasyCache.Storage;
-using EasyCache.API.Sample.Services;
+using EasyCache.NET.Storage;
+using EasyCache.NET.API.Sample.Services;
 
-namespace EasyCache.API.Sample
+namespace EasyCache.NET.API.Sample
 {
     public class Startup
     {

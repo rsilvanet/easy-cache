@@ -1,10 +1,10 @@
-using EasyCache.Storage;
-using EasyCache.Tests.Shared;
+using EasyCache.NET.Storage;
+using EasyCache.NET.Tests.Shared;
 using Moq;
 using System.IO;
 using System.Linq;
 
-namespace EasyCache.Tests
+namespace EasyCache.NET.Tests
 {
     public class FileCacheTests : BaseCacheTests
     {

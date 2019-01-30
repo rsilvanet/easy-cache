@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace EasyCache.Tests.Shared
+namespace EasyCache.NET.Tests.Shared
 {
     public class TestObject
     {

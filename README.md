@@ -1,6 +1,6 @@
-# Easy Cache
+# EasyCache.NET
 
-Easy Cache is a .NET library that turns it simple to cache data in your apps with an easy usability and less lines of code. By default, it implements 2 simple types of storage:
+EasyCache.NET is a .NET library that turns it simple to cache data in your apps with an easy usability and less lines of code. By default, it implements 2 simple types of storage:
 
 * **MemoryCacheStorage**: stores the cache in memory and it's acessible only in your application scope and lifecycle.
 
@@ -48,5 +48,5 @@ public ActionResult Get()
 }
 ```
 
-You can also see a sample code [here](https://github.com/rsilvanet/easy-cache/tree/master/samples/EasyCache.API.Sample).
+You can also see a sample code [here](https://github.com/rsilvanet/easy-cache/tree/master/samples/EasyCache.NET.API.Sample).
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace EasyCache.Storage
+namespace EasyCache.NET.Storage
 {
     public class MemoryCacheStorage : ICacheStorage
     {

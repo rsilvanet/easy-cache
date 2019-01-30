@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace EasyCache.API.Sample
+namespace EasyCache.NET.API.Sample
 {
     public class Program
     {

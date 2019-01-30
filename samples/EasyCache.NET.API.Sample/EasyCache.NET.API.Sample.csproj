@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\EasyCache\EasyCache.csproj" />
+    <ProjectReference Include="..\..\src\EasyCache.NET\EasyCache.NET.csproj" />
   </ItemGroup>
 
 </Project>

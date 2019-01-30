@@ -1,6 +1,6 @@
 using System;
 
-namespace EasyCache.Storage
+namespace EasyCache.NET.Storage
 {
     public interface ICacheStorage
     {

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyCache.API.Sample.Services;
+using EasyCache.NET.API.Sample.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyCache.API.Sample.Controllers
+namespace EasyCache.NET.API.Sample.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -1,7 +1,7 @@
 ﻿using System;
-using EasyCache.Storage;
+using EasyCache.NET.Storage;
 
-namespace EasyCache
+namespace EasyCache.NET
 {
     public class Caching
     {

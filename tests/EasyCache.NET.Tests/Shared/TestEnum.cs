@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace EasyCache.Tests.Shared
+namespace EasyCache.NET.Tests.Shared
 {
     public enum TestEnum
     {

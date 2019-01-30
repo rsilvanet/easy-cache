@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Text;
 
-namespace EasyCache.Storage
+namespace EasyCache.NET.Storage
 {
     public class FileCacheStorage : ICacheStorage
     {
