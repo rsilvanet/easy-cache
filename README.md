@@ -8,6 +8,8 @@ EasyCache.NET is a .NET library that turns it simple to cache data in your apps 
 
 Note that I do not recommend you to use these implementations in your production code since they are not the best storages for effective cache and, beyond that, are not optimized. Instead, I recommend you to do your own implementation of the ```ICacheStorage``` using an appropriate storage of your choice or have a look in my **Redis** implementation (comming soon).
 
+Nuget Package: [EasyCache.NET](https://www.nuget.org/packages/EasyCache.NET)
+
 Now, let me show you the code...
 
 In your startup code, configure the ```Caching``` and inject in your DI resolver, container or static field:
