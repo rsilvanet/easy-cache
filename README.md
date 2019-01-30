@@ -1,5 +1,7 @@
 # EasyCache.NET
 
+[![Build Status](https://travis-ci.org/rsilvanet/easy-cache.svg?branch=master)](https://travis-ci.org/rsilvanet/easy-cache)
+
 EasyCache.NET is a .NET library that turns it simple to cache data in your apps with an easy usability and less lines of code. By default, it implements 2 simple types of storage:
 
 * **MemoryCacheStorage**: stores the cache in memory and it's acessible only in your application scope and lifecycle.
