@@ -8,6 +8,7 @@
     <Authors>Robson da Silva</Authors>
     <RepositoryUrl>https://github.com/rsilvanet/easy-cache</RepositoryUrl>
     <PackageTags>easy;cache;net</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>
