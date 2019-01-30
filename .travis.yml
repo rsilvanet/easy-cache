@@ -1,0 +1,7 @@
+language: csharp
+mono: none
+dotnet: 2.1.502
+
+script:
+  - dotnet build src/EasyCache.NET/EasyCache.NET.csproj
+  - dotnet test src/EasyCache.NET.Tests/EasyCache.NET.Tests.csproj
